@@ -53,7 +53,7 @@ export async function createServer() {
     await server.register(sentryPlugin, {
       dsn: process.env.SENTRY_DSN,
       environment: 'production',
-      release: process.env.VERSION,
+      // release: process.env.VERSION,
       integrations: [
         nodeProfilingIntegration(),
         new Integrations.Apollo(),
