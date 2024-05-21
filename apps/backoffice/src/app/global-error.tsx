@@ -1,6 +1,6 @@
 'use client';
 
-// import * as Sentry from '@sentry/nextjs';
+// import * as   from '@sentry/nextjs';
 // import { useEffect } from 'react';
 
 // type Props = {
