@@ -32,7 +32,7 @@ async function refreshToken(args: any) {
       client_id: process.env.GITHUB_ID as string,
       client_secret: process.env.GITHUB_SECRET as string,
       grant_type: "refresh_token",
-      refresh_token: user?.refresh_token as string,
+      refresh_token: user?.auth.refreshToken as string,
     })
 
     const refreshedTokens = await axios.post("https://github.com/login/oauth/access_token", params).then(response => {
