@@ -6,8 +6,6 @@ services:
       dockerfile: ./apps/api/Dockerfile
     ports:
       - '3000:3000'
-    env_file:
-      - .env
     environment:
       - NODE_ENV=$NODE_ENV
       - PORT=$PORT
@@ -22,8 +20,6 @@ services:
       dockerfile: ./apps/backoffice/Dockerfile
     ports:
       - '3002:3002'
-    env_file:
-      - .env
     environment:
       - NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
       - NEXTAUTH_URL=$NEXTAUTH_URL
