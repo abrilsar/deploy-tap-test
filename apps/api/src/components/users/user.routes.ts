@@ -9,4 +9,6 @@ export async function userRouter(
   // fastify.get('/v1/users/:id', () => { return 'hoka' });
 
   fastify.post('/v1/create-user', userController.createUser);
+
+  fastify.get('/v1/prueba', () => { return 'Hola. Funciono!' })
 }
