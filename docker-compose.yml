@@ -13,14 +13,13 @@ services:
       - JWT_SECRET=$JWT_SECRET
       - DATABASE=$DATABASE
       - CORS_ORIGINS=$CORS_ORIGINS
-
-  backoffice:
-    build:
-      context: .
-      dockerfile: ./apps/backoffice/Dockerfile
-    ports:
-      - '3002:3002'
-    environment:
-      - NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-      - NEXTAUTH_URL=$NEXTAUTH_URL
-      - NEXTAUTH_SECRET=$NEXTAUTH_SECRET
+  # backoffice:
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/backoffice/Dockerfile
+  #   ports:
+  #     - '3002:3002'
+  #   environment:
+  #     - NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+  #     - NEXTAUTH_URL=$NEXTAUTH_URL
+  #     - NEXTAUTH_SECRET=$NEXTAUTH_SECRET
