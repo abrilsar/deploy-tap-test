@@ -1,5 +1,5 @@
 'use client'
-import CardDB, { BookingCard, CardDBSkeleton } from '@/components/dashboard/CardDB'
+import CardDB, { CardDBSkeleton } from '@/components/dashboard/CardDB'
 import SearchFieldDB from '@/components/dashboard/SearchFieldDB'
 import { ConfigProjectPageUrl } from '@/constants/urls'
 import { useDataContex } from '@/hooks/useDataContext'
