@@ -1,18 +1,18 @@
 version: '3'
 services:
-  api:
-    build:
-      context: .
-      dockerfile: ./apps/api/Dockerfile
-    ports:
-      - '3000:3000'
-    environment:
-      - NODE_ENV=$NODE_ENV
-      - PORT=$PORT
-      - HOST=$HOST
-      - JWT_SECRET=$JWT_SECRET
-      - DATABASE=$DATABASE
-      - CORS_ORIGINS=$CORS_ORIGINS
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/api/Dockerfile
+  #   ports:
+  #     - '3000:3000'
+  #   environment:
+  #     - NODE_ENV=$NODE_ENV
+  #     - PORT=$PORT
+  #     - HOST=$HOST
+  #     - JWT_SECRET=$JWT_SECRET
+  #     - DATABASE=$DATABASE
+  #     - CORS_ORIGINS=$CORS_ORIGINS
   backoffice:
     build:
       context: .
