@@ -48,4 +48,4 @@ WORKDIR /app/apps/backoffice
 
 EXPOSE 3002
 
-CMD ["npm", "start"]
+CMD node apps/backoffice/src/app/layout.tsx
