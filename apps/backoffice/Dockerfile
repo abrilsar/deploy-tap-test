@@ -40,12 +40,12 @@ USER nextjs
 COPY --from=installer /app/apps/backoffice/next.config.js .
 COPY --from=installer /app/apps/backoffice/package.json .
 
-# COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/.next/standalone ./
-COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/.next ./apps/backoffice/.next
+COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/.next/static ./apps/backoffice/.next/static
 # COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/public ./apps/backoffice/public
 
 WORKDIR /app/apps/backoffice
 
 EXPOSE 3002
 
-CMD node apps/backoffice/src/app/layout.tsx
+CMD ["npm", "start"]
