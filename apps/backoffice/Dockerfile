@@ -47,4 +47,4 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/public ./apps/b
 
 EXPOSE 3002
 
-CMD ["node", "server.js"]
+CMD node apps/backoffice/server.js
