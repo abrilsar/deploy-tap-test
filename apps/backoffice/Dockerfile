@@ -1,21 +1,18 @@
 FROM node:20-alpine AS base
 RUN apk add --no-cache git libc6-compat
 RUN apk update
-WORKDIR /app
 ENV SCOPE=@avila-tek/admin
 
 
 FROM base AS builder
+RUN apk add --no-cache libc6-compat
 # Set working directory
 WORKDIR /app
-RUN npm install -g turbo
 COPY . .
-RUN turbo prune ${SCOPE} --docker
+RUN npx turbo prune ${SCOPE} --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM base AS installer
-RUN apk add --no-cache libc6-compat
-RUN apk update
 WORKDIR /app
 
 # First install the dependencies (as they change less often)
@@ -28,7 +25,7 @@ RUN npm ci --no-audit
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
-RUN npx turbo build --scope=${SCOPE} --filter=${SCOPE} --include-dependencies
+RUN npx turbo build --scope=${SCOPE} --filter=${SCOPE} 
 
 FROM base AS runner
 WORKDIR /app
@@ -47,6 +44,7 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/.next/standalon
 COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/.next/static ./apps/backoffice/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/public ./apps/backoffice/public
 
-EXPOSE 3002
+
+# EXPOSE 3002
 
 CMD node apps/backoffice/server.js
