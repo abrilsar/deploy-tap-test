@@ -47,6 +47,6 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/backoffice/.next/static ./
 
 
 EXPOSE 3002
-ENV PORT=3002
+ENV PORT 3002
 
 CMD HOSTNAME="0.0.0.0" node apps/backoffice/server.js
