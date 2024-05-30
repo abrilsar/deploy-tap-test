@@ -19,9 +19,6 @@ WORKDIR /app
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/package-lock.json ./package-lock.json
-#NEW
-COPY --from=builder /app/node_modules ./node_modules
-#---
 RUN npm ci --no-audit
 
 # Build the project
