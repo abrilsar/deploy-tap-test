@@ -31,6 +31,7 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+ENV HOST=0.0.0.0
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
