@@ -9,13 +9,13 @@ async function start() {
       process.exit(1);
     });
 
-    const port = parseInt(String(process.env.PORT || '3000'), 10);
-    const host = process.env.HOST || '0.0.0.0';
+    const port = parseInt(String('3000'), 10);
+    const host = '0.0.0.0';
     await server.listen({ host, port });
 
     for (const signal of ['SIGINT', 'SIGTERM']) {
       process.on(signal, () =>
-        server.close().then((err) => {
+        server.close().then((err: Error | null) => {
           console.log(`close application on ${signal}`);
           process.exit(err ? 1 : 0);
         })
